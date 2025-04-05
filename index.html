@@ -1,89 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programmers Survey Form</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmers Survey Form</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <div id="heading">
-    <h1 id=title>Programmers Voice! Tell us your choice!</h1>
-    <p id="description">We love to know about which technology and tools software engineers are using world wide! Each and every Developers opinions are very precious to us!</p>
-    </div>
-    <div id="main">
-        <form id="survey-form">
-        <div id="input-fields">
-            <label id="name-label"><b>Name:</b></label>
-            <input id="name" type="name" name="name" class="form" required placeholder="Full Name"><br>
-            <br>
-            <label id="email-label"><b>Email:</b></label>
-            <input id="email" type="email" name="email" class="form" required placeholder="example@mail.com"><br>
-            <br>
-            <label id="number-label"><b>Age:</b></label>
-            <input id="number" type="number" name="number" class="form" min="5" max="99" placeholder="12+">
-         </div>
-         <div id="dropdown-div"><br>
-            <label id="dropdown-label"><strong>Programming language you are expert at: </strong></label><br>
-            <select id="dropdown" name="code-lang" class="form">
-                <option value="C">C (Programming Language)</option>
-                <option value="Python">Python</option>
-                <option value="C#">C#</option>
-                <option value="php">PHP</option>
-                <option value="Js">Java Script</option>
-                <option value="Go">Go (Programming Language)</option>
-                <option value="ruby">Ruby on rails</option>
-                <option value="C++">C++</option>
-                <option value="Java">Java</option>
-            </select>
-         </div>
-         <div id="button-area">
-             <br>
-            <label id="job-label"><b>Employment Status:</b></label><br>
-            <input type="radio" class="radio-inline" name="gender" value="employed" checked> Full-time job holder.(Employed)<br>
-            <input type="radio" class="radio-inline" name="gender" value="freelancer"> Part-time job holder.(Freelancer)<br>
-            <input type="radio" class="radio-inline" name="gender" value="applier"> Looking for a job.(Applier)<br>
-            <input type="radio" class="radio-inline" name="gender" value="unemployed"> I am a student.(Unemployed)
-          </div>
-          <div id="button-area"><br>
-            <label id="os-label"><b>Operating system experience: </b></label><br>
-            <input type="checkbox" name="os1" value="windows" checked> I am experienced with Windows-OS<br>
-            <input type="checkbox" name="os2" value="linux"> I am experienced with Linux-OS<br>
-            <input type="checkbox" name="0s3" value="mac"> I am experienced with Mac-OS<br>
-          </div>
+  <div id="heading">
+    <h1 id="title">Programmers Voice! Tell us your choice!</h1>
+    <p id="description">We love to know which technology and tools software engineers are using worldwide! Every developer's opinion is precious to us!</p>
+  </div>
 
-          <div id="dropdown"><br><br>
-            <label id="dropdown-label"><strong>Programming language you wanna be expert: </strong></label><br>
-            <select id="dropdown" name="code-lang" class="form"><br><br>
-                <option value="C">C (Programming Language)</option>
-                <option value="Python">Python</option>
-                <option value="C#">C#</option>
-                <option value="php">PHP</option>
-                <option value="Js">Java Script</option>
-                <option value="Go">Go (Programming Language)</option>
-                <option value="ruby">Ruby on rails</option>
-                <option value="C++">C++</option>
-                <option value="Java">Java</option>
-            </select>
-         </div>
-          <div id="button-area"><br><br>
-            <label id="os-label"><b>Latest technology experience:</b></label><br>
-            <input type="checkbox" name="tech1" value="flutter"> Flutter UI<br>
-            <input type="checkbox" name="tech2" value="nodejs"> Node.js<br>
-            <input type="checkbox" name="tech3" value="tnflow"> Tensorflow<br>
-            <input type="checkbox" name="tech3" value="git"> Github<br>
-            <input type="checkbox" name="tech3" value="devops"> Dev-Ops<br>
-          </div>
+  <div id="main">
+    <form id="survey-form">
+      <div id="input-fields">
+        <label for="name"><b>Name:</b></label>
+        <input id="name" name="name" type="text" class="form" required placeholder="Full Name"><br><br>
 
+        <label for="email"><b>Email:</b></label>
+        <input id="email" name="email" type="email" class="form" required placeholder="example@mail.com"><br><br>
 
-          <div id="ending"><br><br>
-            <label id="comments-label">Do you have any suggestion about this survey?</label><br>
-            <textarea style= height:120px;" class="form" placeholder="Please feel free to write a review..."></textarea><br><br>
-            <input id="submit" type="submit"  class="form">
-          </div>
-        </form>
-    </div>
+        <label for="age"><b>Age:</b></label>
+        <input id="age" name="age" type="number" class="form" min="5" max="99" placeholder="12+"><br><br>
+      </div>
 
+      <div id="dropdown-div">
+        <label for="languageExpert"><strong>Programming language you are expert at:</strong></label><br>
+        <select id="languageExpert" name="languageExpert" class="form">
+          <option value="C">C</option>
+          <option value="Python">Python</option>
+          <option value="C#">C#</option>
+          <option value="PHP">PHP</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Go">Go</option>
+          <option value="Ruby">Ruby</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+        </select><br><br>
+      </div>
+
+      <div>
+        <label><b>Employment Status:</b></label><br>
+        <input type="radio" name="employment" value="employed" checked> Employed (Full-time)<br>
+        <input type="radio" name="employment" value="freelancer"> Freelancer (Part-time)<br>
+        <input type="radio" name="employment" value="looking"> Looking for a job<br>
+        <input type="radio" name="employment" value="student"> Student<br><br>
+      </div>
+
+      <div>
+        <label><b>Operating system experience:</b></label><br>
+        <input type="checkbox" name="os" value="Windows"> Windows<br>
+        <input type="checkbox" name="os" value="Linux"> Linux<br>
+        <input type="checkbox" name="os" value="Mac"> Mac<br><br>
+      </div>
+
+      <div>
+        <label for="languageWant"><strong>Programming language you want to be expert in:</strong></label><br>
+        <select id="languageWant" name="languageWant" class="form">
+          <option value="C">C</option>
+          <option value="Python">Python</option>
+          <option value="C#">C#</option>
+          <option value="PHP">PHP</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Go">Go</option>
+          <option value="Ruby">Ruby</option>
+          <option value="C++">C++</option>
+          <option value="Java">Java</option>
+        </select><br><br>
+      </div>
+
+      <div>
+        <label><b>Latest technology experience:</b></label><br>
+        <input type="checkbox" name="tech" value="Flutter"> Flutter<br>
+        <input type="checkbox" name="tech" value="Node.js"> Node.js<br>
+        <input type="checkbox" name="tech" value="TensorFlow"> TensorFlow<br>
+        <input type="checkbox" name="tech" value="GitHub"> GitHub<br>
+        <input type="checkbox" name="tech" value="DevOps"> DevOps<br><br>
+      </div>
+
+      <div>
+        <label for="suggestions">Suggestions about this survey:</label><br>
+        <textarea id="suggestions" name="suggestions" class="form" rows="5" placeholder="Feel free to write a review..."></textarea><br><br>
+      </div>
+
+      <input type="submit" value="Submit" class="form">
+    </form>
+    <p id="responseMessage" style="margin-top: 20px;"></p>
+  </div>
+
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/YOUR_WEB_APP_URL/exec';
+    const form = document.getElementById('survey-form');
+    const responseMsg = document.getElementById('responseMessage');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(scriptURL, { method: 'POST', body: formData })
+        .then(response => {
+          responseMsg.innerHTML = "🎉 Thanks for submitting!";
+          form.reset();
+        })
+        .catch(error => {
+          responseMsg.innerHTML = "⚠️ Submission failed. Try again!";
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
 </body>
-<script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </html>
