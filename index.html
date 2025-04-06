@@ -28,6 +28,9 @@
       e.preventDefault();
       // Reset any previous status messages
       statusMessage.textContent = '';
+      statusMessage.style.color = 'black';
+
+      console.log("Form is being submitted...");
 
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
