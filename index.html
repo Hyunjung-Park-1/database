@@ -18,10 +18,12 @@
   <input name="lastName" type="text" placeholder="Last Name">    
   <button type="submit">Submit</button>
 </form>
+    <p id="statusMessage"></p>
     </div>
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyCzLWKE3ywMmH4oD3sk3j83oMMYJLv0mqaiPUo8qMxjV9NYxZyn-m8jBmUQoovv2U/exec"
     const form = document.forms['submit-to-google-sheet']
+    const statusMessage = document.getElementById('statusMessage');
   
   form.addEventListener('submit', e => {
       e.preventDefault();
