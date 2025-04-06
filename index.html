@@ -14,12 +14,14 @@
   <div id="main">
     <form name="submit-to-google-sheet">
   <input name="email" type="email" placeholder="Email" required>
-  <button type="submit">Send</button>
+  <input name="firstName" type="text" placeholder="First Name">
+  <input name="lastName" type="text" placeholder="Last Name">    
+  <button type="submit">Submit</button>
 </form>
     </div>
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyCzLWKE3ywMmH4oD3sk3j83oMMYJLv0mqaiPUo8qMxjV9NYxZyn-m8jBmUQoovv2U/exec"
-      const form = document.forms['submit-to-google-sheet']
+    const form = document.forms['submit-to-google-sheet']
 
   form.addEventListener('submit', e => {
     e.preventDefault()
