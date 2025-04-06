@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Database</title>
+  <style>
+    .step { display: none; }
+    .step.active { display: block; }
+  </style>
 </head>
 <body>
   <div id="heading">
@@ -13,38 +17,53 @@
 
   <div id="main">
     <form name="submit-to-google-sheet">
-  <input name="email" type="email" placeholder="Email" required>
-  <input name="firstName" type="text" placeholder="First Name">
-  <input name="lastName" type="text" placeholder="Last Name">    
-  <button type="submit">Submit</button>
-</form>
-    <p id="statusMessage"></p>
-    </div>
+      <!-- Step 1 -->
+      <div class="step active" id="step-1">
+        <input name="email" type="email" placeholder="Email" required />
+        <input name="firstName" type="text" placeholder="First Name" />
+        <input name="lastName" type="text" placeholder="Last Name" />
+        <button type="button" id="nextBtn">Next</button>
+      </div>
+       <!-- Step 2 -->
+      <div class="step" id="step-2">
+        <input name="eventId" type="text" placeholder="Event ID" required />
+        <button type="submit">Submit</button>
+      </div>
+     <p id="statusMessage"></p>
+    </form>
+   </div>
+  
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyCzLWKE3ywMmH4oD3sk3j83oMMYJLv0mqaiPUo8qMxjV9NYxZyn-m8jBmUQoovv2U/exec"
     const form = document.forms['submit-to-google-sheet']
     const statusMessage = document.getElementById('statusMessage');
+
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const nextBtn = document.getElementById('nextBtn');
   
-  form.addEventListener('submit', e => {
+  nextBtn.addEventListener('click', () => {
+      // You can add basic validation here if needed
+      step1.classList.remove('active');
+      step2.classList.add('active');
+    });
+
+    form.addEventListener('submit', e => {
       e.preventDefault();
-      // Reset any previous status messages
       statusMessage.textContent = '';
       statusMessage.style.color = 'black';
 
-      console.log("Form is being submitted...");
-
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
         .then(response => {
           console.log('Success!', response);
-          // Show success message
           statusMessage.textContent = 'Your data has been successfully submitted!';
           statusMessage.style.color = 'green';
-          // Optionally, clear form after submission
           form.reset();
+          step1.classList.add('active');
+          step2.classList.remove('active');
         })
         .catch(error => {
           console.error('Error!', error.message);
-          // Show error message
           statusMessage.textContent = 'There was an error submitting your data.';
           statusMessage.style.color = 'red';
         });
