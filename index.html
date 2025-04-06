@@ -13,116 +13,14 @@
   </div>
 
   <div id="main">
-    <form id="survey-form">
-      <div id="input-fields">
-        <label for="name"><b>Name:</b></label>
-        <input id="name" name="name" type="text" class="form" required placeholder="Full Name"><br><br>
-
-        <label for="email"><b>Email:</b></label>
-        <input id="email" name="email" type="email" class="form" required placeholder="example@mail.com"><br><br>
-
-        <label for="eventid"><b>Event ID:</b></label>
-        <input id="eventid" name="eventid" type="number" class="form" min="1" max="243"><br><br>
-      </div>
-
-      <div id="dropdown-div">
-        <label for="languageExpert"><strong>Programming language you are expert at:</strong></label><br>
-        <select id="languageExpert" name="languageExpert" class="form">
-          <option value="C">C</option>
-          <option value="Python">Python</option>
-          <option value="C#">C#</option>
-          <option value="PHP">PHP</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Go">Go</option>
-          <option value="Ruby">Ruby</option>
-          <option value="C++">C++</option>
-          <option value="Java">Java</option>
-        </select><br><br>
-      </div>
-
-      <div>
-        <label><b>Employment Status:</b></label><br>
-        <input type="radio" name="employment" value="employed" checked> Employed (Full-time)<br>
-        <input type="radio" name="employment" value="freelancer"> Freelancer (Part-time)<br>
-        <input type="radio" name="employment" value="looking"> Looking for a job<br>
-        <input type="radio" name="employment" value="student"> Student<br><br>
-      </div>
-
-      <div>
-        <label><b>Operating system experience:</b></label><br>
-        <input type="checkbox" name="os" value="Windows"> Windows<br>
-        <input type="checkbox" name="os" value="Linux"> Linux<br>
-        <input type="checkbox" name="os" value="Mac"> Mac<br><br>
-      </div>
-
-      <div>
-        <label for="languageWant"><strong>Programming language you want to be expert in:</strong></label><br>
-        <select id="languageWant" name="languageWant" class="form">
-          <option value="C">C</option>
-          <option value="Python">Python</option>
-          <option value="C#">C#</option>
-          <option value="PHP">PHP</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Go">Go</option>
-          <option value="Ruby">Ruby</option>
-          <option value="C++">C++</option>
-          <option value="Java">Java</option>
-        </select><br><br>
-      </div>
-
-      <div>
-        <label><b>Latest technology experience:</b></label><br>
-        <input type="checkbox" name="tech" value="Flutter"> Flutter<br>
-        <input type="checkbox" name="tech" value="Node.js"> Node.js<br>
-        <input type="checkbox" name="tech" value="TensorFlow"> TensorFlow<br>
-        <input type="checkbox" name="tech" value="GitHub"> GitHub<br>
-        <input type="checkbox" name="tech" value="DevOps"> DevOps<br><br>
-      </div>
-
-      <div>
-        <label for="suggestions">Suggestions about this survey:</label><br>
-        <textarea id="suggestions" name="suggestions" class="form" rows="5" placeholder="Feel free to write a review..."></textarea><br><br>
-      </div>
-
-      <input type="submit" value="Submit" class="form">
+    
+    <form 
+      method="POST" 
+      action="https://script.google.com/macros/s/AKfycbyZmFXB23fN7JmeuLqV-U_E1MF6_iWMUiA6Ukc0Fr-kgUbn9CmaOMkE-l2MneYxQ31wVw/exec"
+      >
+      <input name="Email" type="email" placeholder="Email" required>
+      <input name="Name" type="text" placeholder="Name" required>
+      <button type="submit">Send</button>
     </form>
-    <p id="responseMessage" style="margin-top: 20px;"></p>
-  </div>
-
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxZszQi0cZg-nQ5-AEOjYor43_fJTWsRWP_VTRMfOkNT7DVUIUPv5tXWOpR3n1tF8NBhA/exec';
-    const form = document.getElementById('survey-form');
-    const responseMsg = document.getElementById('responseMessage');
-
-    form.addEventListener('submit', e => {
-    e.preventDefault();
-  
-  const formData = new FormData(form);
-  const data = new URLSearchParams();
-  
-  formData.forEach((value, key) => {
-    data.append(key, value);
-  });
-
-  console.log("Form data being sent:", data.toString());  // Log the data being sent
-      
-  fetch(scriptURL, {
-    method: 'POST',
-    body: data
-  })
-  .then(response => response.json()) // Parse the response as JSON
-  .then(data => {
-    if (data.result === "success") {
-      responseMsg.innerHTML = "🎉 Thanks for submitting!";
-    } else {
-      responseMsg.innerHTML = "⚠️ Submission failed. Please try again.";
-    }
-  })
-  .catch(error => {
-    responseMsg.innerHTML = "⚠️ Submission failed. Try again!";
-    console.error('Error!', error.message);
-  });
-});
-  </script>
 </body>
 </html>
