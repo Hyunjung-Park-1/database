@@ -22,13 +22,29 @@
   <script>
     const scriptURL = "https://script.google.com/macros/s/AKfycbyCzLWKE3ywMmH4oD3sk3j83oMMYJLv0mqaiPUo8qMxjV9NYxZyn-m8jBmUQoovv2U/exec"
     const form = document.forms['submit-to-google-sheet']
+    const statusMessage = document.getElementById('statusMessage');
 
   form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
+      e.preventDefault();
+      // Reset any previous status messages
+      statusMessage.textContent = '';
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          console.log('Success!', response);
+          // Show success message
+          statusMessage.textContent = 'Your data has been successfully submitted!';
+          statusMessage.style.color = 'green';
+          // Optionally, clear form after submission
+          form.reset();
+        })
+        .catch(error => {
+          console.error('Error!', error.message);
+          // Show error message
+          statusMessage.textContent = 'There was an error submitting your data.';
+          statusMessage.style.color = 'red';
+        });
+    });
 </script>
 </body>
 </html>
