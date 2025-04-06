@@ -95,18 +95,28 @@
     const responseMsg = document.getElementById('responseMessage');
 
     form.addEventListener('submit', e => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      fetch(scriptURL, { method: 'POST', body: formData })
-        .then(response => {
-          responseMsg.innerHTML = "🎉 Thanks for submitting!";
-          form.reset();
-        })
-        .catch(error => {
-          responseMsg.innerHTML = "⚠️ Submission failed. Try again!";
-          console.error('Error!', error.message);
-        });
-    });
+  e.preventDefault();
+  
+  const formData = new FormData(form);
+  const data = new URLSearchParams();
+  
+  formData.forEach((value, key) => {
+    data.append(key, value);
+  });
+  
+  fetch(scriptURL, {
+    method: 'POST',
+    body: data
+  })
+  .then(response => {
+    responseMsg.innerHTML = "🎉 Thanks for submitting!";
+    form.reset();
+  })
+  .catch(error => {
+    responseMsg.innerHTML = "⚠️ Submission failed. Try again!";
+    console.error('Error!', error.message);
+  });
+});
   </script>
 </body>
 </html>
