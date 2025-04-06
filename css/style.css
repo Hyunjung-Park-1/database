@@ -54,10 +54,17 @@
     padding: .7rem;
     font-size: 1.15rem;
     cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
   }
 
   #submit:hover {
     background: rgb(9, 168, 89);
+  }
+
+  #submit:active {
+    transform: translateY(4px); /* Button looks like it's being pressed down */
+    background-color: #3e8e41; /* Even darker green on click */
   }
 
 .form {
