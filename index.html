@@ -95,7 +95,7 @@
     const responseMsg = document.getElementById('responseMessage');
 
     form.addEventListener('submit', e => {
-  e.preventDefault();
+    e.preventDefault();
   
   const formData = new FormData(form);
   const data = new URLSearchParams();
@@ -103,7 +103,9 @@
   formData.forEach((value, key) => {
     data.append(key, value);
   });
-  
+
+  console.log("Form data being sent:", data.toString());  // Log the data being sent
+      
   fetch(scriptURL, {
     method: 'POST',
     body: data
