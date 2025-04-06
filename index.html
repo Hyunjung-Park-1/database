@@ -108,9 +108,13 @@
     method: 'POST',
     body: data
   })
-  .then(response => {
-    responseMsg.innerHTML = "🎉 Thanks for submitting!";
-    form.reset();
+  .then(response => response.json()) // Parse the response as JSON
+  .then(data => {
+    if (data.result === "success") {
+      responseMsg.innerHTML = "🎉 Thanks for submitting!";
+    } else {
+      responseMsg.innerHTML = "⚠️ Submission failed. Please try again.";
+    }
   })
   .catch(error => {
     responseMsg.innerHTML = "⚠️ Submission failed. Try again!";
